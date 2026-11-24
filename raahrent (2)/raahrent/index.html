@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en-IN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>RaahRent – Self-drive car rental across India</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=IBM+Plex+Sans:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div class="logo">Raah<span>Rent</span></div>
+  <nav aria-label="Main"><button id="tc" aria-pressed="true">Cars</button><button id="ta" aria-pressed="false">Admin</button></nav>
+</header>
+
+<main id="cust">
+  <section class="hero">
+    <h1>Delhi to Jaipur is 280 km. Drive your own pick.</h1>
+    <p class="lede">Self-drive cars in ten Indian cities, from a Swift for the office commute to a Tempo Traveller for the whole family.</p>
+    <div class="board"><form class="board-in" onsubmit="return false">
+      <h2>Where are you headed?</h2>
+      <div class="fields">
+        <div><label for="loc">Pickup city</label><select id="loc"></select></div>
+        <div><label for="from">Pickup date</label><input type="date" id="from"></div>
+        <div><label for="to">Return date</label><input type="date" id="to"></div>
+        <button class="btn" id="go" type="button">Find cars</button>
+      </div></form></div>
+    <ul class="facts"><li>Free cancellation up to 24 hours before pickup</li><li>₹5,000 refundable deposit</li><li>Bring your driving licence and Aadhaar</li></ul>
+  </section>
+
+  <div class="cols" id="fleet">
+    <aside class="side">
+      <h3>Car type</h3><div class="chips" id="chips" role="group" aria-label="Car type"></div>
+      <label for="sort">Sort by</label>
+      <select id="sort"><option value="p">Lowest price</option><option value="s">Most seats</option><option value="n">Name</option></select>
+    </aside>
+    <section aria-labelledby="lh">
+      <div class="listhead"><h2 id="lh">Available cars</h2><p class="count" id="count" aria-live="polite"></p></div>
+      <div id="grid"></div>
+    </section>
+  </div>
+
+  <section class="steps">
+    <h2>How booking works</h2>
+    <div><div class="num">1</div><h3>Choose your car</h3><p>Pick a city, your dates and a car. The total includes 18% GST.</p></div>
+    <div><div class="num">2</div><h3>Confirm online</h3><p>Pay by UPI or card, or settle at the counter when you collect the keys.</p></div>
+    <div><div class="num">3</div><h3>Collect and drive</h3><p>Show your licence and Aadhaar at pickup. Return the car with the same fuel level.</p></div>
+  </section>
+</main>
+
+<main id="admin" hidden>
+  <div class="who"><span class="av">VM</span><div><b>Ved Meena</b><small>Administrator</small></div></div>
+  <div class="strip" id="stats"></div>
+  <section class="panel"><h2>Bookings</h2><div class="scroll" id="btable"></div></section>
+  <section class="panel"><h2>Fleet</h2><div class="scroll" id="ftable"></div>
+    <form class="addcar" onsubmit="return false">
+      <div><label for="an">Car name</label><input id="an" placeholder="Tata Punch"></div>
+      <div><label for="at">Type</label><select id="at"></select></div>
+      <div><label for="ap">Price per day (₹)</label><input id="ap" type="number" min="500" placeholder="1800"></div>
+      <button class="btn" id="addbtn" type="button">Add car</button>
+    </form>
+    <p class="err" id="aerr" role="alert"></p>
+  </section>
+</main>
+
+<footer>RaahRent is a demo project. Cars, prices and bookings are sample data stored in your browser.</footer>
+</div>
+<dialog id="dlg" aria-labelledby="dt"><div class="dlg" id="dbody"></div></dialog>
+
+<script src="script.js"></script>
+</body>
+</html>
